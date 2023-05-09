@@ -49,12 +49,11 @@ void MainWindow::startSceneVisual()
     QGraphicsScene *scene = new QGraphicsScene(ui->graphicsView);
     QPixmap chessboardPixmap(":/resources/images/empty-chessboard.png");
     QGraphicsPixmapItem *chessboardItem = new QGraphicsPixmapItem(chessboardPixmap);
-    chessboardItem->setPixmap(chessboardPixmap.scaled(478, 478, Qt::KeepAspectRatio));
+    chessboardItem->setPixmap(chessboardPixmap.scaled(440, 440, Qt::KeepAspectRatio));
     scene->addItem(chessboardItem);
+    QFont font("Arial", 12);
     ui->graphicsView->setScene(scene);
-
 }
-
 
 void MainWindow::on_about_clicked()
 {
@@ -63,18 +62,15 @@ void MainWindow::on_about_clicked()
                                            "was written by Dmitry Borovyk");
 }
 
-
 void MainWindow::on_playwithai_clicked()
 {
     QMessageBox::information(this, "Info", "available in next versions");
 }
 
-
 void MainWindow::on_multiplayergame_clicked()
 {
     QMessageBox::information(this, "Info", "available in next versions");
 }
-
 
 void MainWindow::on_playervsplayer_clicked()
 {
@@ -89,15 +85,17 @@ void MainWindow::on_playervsplayer_clicked()
             break;
         }
     }
-    while (m_secondPlayerName.isEmpty())
+    if (!m_firstPlayerName.isEmpty())
     {
-        bool ok = false;
-        m_secondPlayerName = QInputDialog::getText(this, tr("Black figures"), tr("Second player enter your name:"), QLineEdit::Normal, QString(), &ok);
-        if (!ok)
+        while (m_secondPlayerName.isEmpty())
         {
-            break;
+            bool ok = false;
+            m_secondPlayerName = QInputDialog::getText(this, tr("Black figures"), tr("Second player enter your name:"), QLineEdit::Normal, QString(), &ok);
+            if (!ok)
+            {
+                break;
+            }
         }
     }
-
 }
 

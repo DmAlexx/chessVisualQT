@@ -222,14 +222,14 @@
       </property>
       <property name="minimumSize">
        <size>
-        <width>480</width>
-        <height>480</height>
+        <width>442</width>
+        <height>442</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
-        <width>480</width>
-        <height>480</height>
+        <width>442</width>
+        <height>442</height>
        </size>
       </property>
      </widget>
